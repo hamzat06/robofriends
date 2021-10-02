@@ -7,14 +7,6 @@ import ErrorBoundry from '../components/ErrorBoundry'
 import NothingFound from '../components/NothingFound'
 
 function App () {
-  // constructor () {
-  //   super()
-  //   this.state = {
-  //     robots: [],
-  //     searchField: '',
-  //     loading: false
-  //   }
-  // }
 
   const [robots, setRobots] = useState([])
   const [searchField, setSearchField] = useState('')
@@ -28,23 +20,9 @@ function App () {
       .then(users => {
         setRobots( users )
         setLoading( false )
-        console.log(robots)
       })
       }, []
     )
-  
-
-  // componentDidMount () {
-  //   this.setState({ loading: true })
-  //   fetch('https://jsonplaceholder.typicode.com/users')
-  //   .then(response => {
-  //     return response.json()
-  //   })
-  //   .then(users => {
-  //     this.setState({ robots: users })
-  //     this.setState({ loading: false })
-  //   })
-  // }
 
   const onSearchChange = (e) => {
     setSearchField( e.target.value )
@@ -69,6 +47,7 @@ function App () {
       </Scroll>
     </div>
   )
+  
 }
 
 export default App
