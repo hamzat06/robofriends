@@ -31,6 +31,7 @@ function App () {
   )
 
   const onSearchChange = (e) => {
+    e.preventDefault()
     setSearchField( e.target.value )
   }
 
