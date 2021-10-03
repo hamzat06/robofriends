@@ -8,11 +8,7 @@ const Loader = ({ loading }) => {
           <span className="visually-hidden">Loading...</span>
         </div>
       </div>
-    ) :
-  
-    (
-      <span></span>
-    )
+    ) : null
 }
 
 export default Loader

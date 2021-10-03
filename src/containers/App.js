@@ -13,7 +13,7 @@ function App () {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-      fetch('https://jsonplaceholder.typicode.com/users')
+    fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => {
         return response.json()
       })
@@ -21,8 +21,14 @@ function App () {
         setRobots( users )
         setLoading( false )
       })
-      }, []
-    )
+      .catch(err => {
+        console.log(err)
+        setTimeout(() => {
+          setLoading(false)
+        }, 3000)
+      })
+    }, []
+  )
 
   const onSearchChange = (e) => {
     setSearchField( e.target.value )
@@ -38,10 +44,10 @@ function App () {
       <SearchBox searchChange={onSearchChange} />
       <Scroll>
         <div className='container'>
+          <Loader loading = {loading} />
           <NothingFound found={filteredRobots} robots={robots} />
           <ErrorBoundry>
-            <Loader loading = {loading} />
-            <CardList robots={filteredRobots} />
+            <CardList robots={filteredRobots} found = {robots} loading = {loading} />
           </ErrorBoundry>
         </div>
       </Scroll>

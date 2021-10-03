@@ -10,7 +10,7 @@ const NothingFound = ({ found, robots }) => {
       )
     }
   }
-  return <span></span>
+  return null
 }
 
 export default NothingFound
